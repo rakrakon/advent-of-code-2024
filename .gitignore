@@ -169,3 +169,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+/.idea/
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/.gitignore
+/.idea/advent-of-code-2024.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
