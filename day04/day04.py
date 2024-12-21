@@ -133,9 +133,30 @@ def part1(puzzle) -> int:
 
     return xmas_count
 
+
+def part2(puzzle):
+    x_mas_count = 0
+    MAS = 'MAS'
+    for i in range(len(puzzle)):
+        for j in range(len(puzzle[i])):
+            if puzzle[i][j] != 'A':
+                continue
+
+            if i >= 1 and i < len(puzzle) - 1 and j >= 1 and j < len(puzzle[i]) - 1:
+                dig1 = puzzle[i-1][j-1] + puzzle[i][j] + puzzle[i+1][j+1]
+                dig2 = puzzle[i-1][j+1] + puzzle[i][j] + puzzle[i+1][j-1]
+
+                if (dig1 == MAS or dig1 == MAS[::-1]) and (dig2 == MAS or dig2 == MAS[::-1]):
+                    x_mas_count += 1
+
+    return x_mas_count
+
+
 def main() -> None:
     with open('puzzle.txt', 'r') as f:
-        print(part1(f.read().splitlines()))
+        puzzle = f.read().splitlines()
+        print(part1(puzzle))
+        print(part2(puzzle))
 
 
 
